@@ -1,0 +1,22 @@
+@import './_normalize.scss';
+
+
+body {
+    background-color:#F6F3F3;
+    font-family: 'Axiforma-Light';
+}
+
+
+@font-face {
+    font-family: 'Axiforma-Book';
+    src: url('../fonts/Axiforma-Book.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Axiforma-Light';
+    src: url('../fonts/Axiforma-Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
