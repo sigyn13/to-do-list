@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex mb-6">
+  <div class="d-flex justify-space-between">
     <v-list shaped max-width="300px">
       <v-subheader>Lists</v-subheader>
       <v-list-item-group v-model="selectedItem" color="deep-purple darken-3">
@@ -17,7 +17,7 @@
         </v-list-item>
       </v-list-item-group>
     </v-list>
-    <div>
+    <div class="col-8">
       <task v-for="item in taskList" :key="item.id" :task="item" />
     </div>
   </div>
