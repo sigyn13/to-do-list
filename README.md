@@ -4,8 +4,14 @@
 ```
 yarn install
 ```
+```
+yarn add json-server
+```
 
 ### Compiles and hot-reloads for development
+```
+json-server --watch tasks.json
+```
 ```
 yarn serve
 ```
