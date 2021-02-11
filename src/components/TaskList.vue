@@ -6,7 +6,7 @@
         <v-list-item
           v-for="list in lists"
           :key="list.type"
-          @click="getTypeOfList(list)"
+          @click="choosenList(list)"
         >
           <v-list-item-icon>
             <v-icon v-text="list.icon"></v-icon>
@@ -34,36 +34,31 @@ export default {
       default() {
         return [];
       }
-    },
-    indexPage: {
-      type: Boolean,
-      default() {
-        return true;
-      }
     }
   },
   data() {
     return {
-      taskList: this.$store.getters.TASKS,
-      selectedItem: 1
+      selectedItem: 0,
+      currentType: "All"
     };
   },
-  computed: {},
-  methods: {
-    getTypeOfList(list) {
-      let tasks = this.$store.getters.TASKS;
-
-      setTimeout(() => {
-        this.$emit("setViewPage", list);
-        if (list.type === "all") {
-          this.taskList = tasks;
-        } else {
-          this.taskList = tasks.filter(i => i.type === list.type);
-        }
-      }, 1000);
+  computed: {
+    tasks() {
+      return this.$store.getters.TASKS;
+    },
+    taskList() {
+      const listOfType = this.tasks.filter(i => i.type === this.currentType);
+      if (this.currentType === "All") {
+        return this.tasks;
+      }
+      return listOfType;
     }
   },
-  mounted() {}
+  methods: {
+    choosenList(list) {
+      this.currentType = list.type;
+    }
+  }
 };
 </script>
 

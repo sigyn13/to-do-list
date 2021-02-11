@@ -10,11 +10,7 @@
       <v-spacer></v-spacer>
     </v-app-bar>
     <v-main>
-      <task-list
-        :lists="lists"
-        :indexPage="indexPage"
-        @setViewPage="setViewPage()"
-      />
+      <task-list :lists="lists" />
     </v-main>
   </v-app>
 </template>
@@ -29,7 +25,7 @@ export default {
   data() {
     return {
       lists: [
-        { type: "all", text: "All tasks", icon: "mdi-check-all" },
+        { type: "All", text: "All tasks", icon: "mdi-check-all" },
         {
           type: "book",
           text: "List of books to read",
@@ -40,18 +36,14 @@ export default {
           text: "List of movies to watchs",
           icon: "mdi-video-vintage"
         }
-      ],
-      indexPage: true
+      ]
     };
   },
   computed: {
     ...mapGetters(["TASKS"])
   },
   methods: {
-    ...mapActions(["GET_TASKS_FROM_API"]),
-    setViewPage() {
-      this.indexPage = !this.indexPage;
-    }
+    ...mapActions(["GET_TASKS_FROM_API"])
   },
   mounted() {
     this.GET_TASKS_FROM_API();
