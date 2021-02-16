@@ -1,26 +1,25 @@
 <template>
   <v-app>
-    <v-app-bar app color="deep-purple darken-3" dense dark>
-      <v-btn icon>
-        <v-icon color="deep-purple lighten-5">mdi-check-all</v-icon>
-      </v-btn>
-
-      <v-toolbar-title>List to do</v-toolbar-title>
-
-      <v-spacer></v-spacer>
-    </v-app-bar>
+    <top-bar />
     <v-main>
-      <task-list :lists="lists" />
+      <div class="d-flex justify-space-between">
+        <all-lists :lists="lists" @choosenList="choosenList" />
+        <div class="col-8">
+          <task v-for="item in taskList" :key="item.id" :task="item" />
+        </div>
+      </div>
     </v-main>
   </v-app>
 </template>
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-import TaskList from "./components/TaskList.vue";
+import AllLists from "./components/AllLists.vue";
+import Task from "./components/Task.vue";
+import TopBar from "./components/TopBar.vue";
 
 export default {
-  components: { TaskList },
+  components: { AllLists, TopBar, Task },
   name: "App",
   data() {
     return {
@@ -36,14 +35,28 @@ export default {
           text: "List of movies to watchs",
           icon: "mdi-video-vintage"
         }
-      ]
+      ],
+      currentType: "All"
     };
   },
   computed: {
-    ...mapGetters(["TASKS"])
+    ...mapGetters(["TASKS"]),
+    tasks() {
+      return this.$store.getters.TASKS;
+    },
+    taskList() {
+      const listOfType = this.tasks.filter(i => i.type === this.currentType);
+      if (this.currentType === "All") {
+        return this.tasks;
+      }
+      return listOfType;
+    }
   },
   methods: {
-    ...mapActions(["GET_TASKS_FROM_API"])
+    ...mapActions(["GET_TASKS_FROM_API"]),
+    choosenList(list) {
+      this.currentType = list.type;
+    }
   },
   mounted() {
     this.GET_TASKS_FROM_API();
