@@ -5,7 +5,7 @@
       <div class="d-flex justify-space-between">
         <all-lists :lists="lists" @choosenList="choosenList" />
         <div class="col-8">
-          <task v-for="item in taskList" :key="item.id" :task="item" />
+          <v-card-custom v-for="item in taskList" :key="item.id" :task="item" />
         </div>
       </div>
     </v-main>
@@ -15,11 +15,11 @@
 <script>
 import { mapActions, mapGetters } from "vuex";
 import AllLists from "./components/AllLists.vue";
-import Task from "./components/Task.vue";
 import TopBar from "./components/TopBar.vue";
+import VCardCustom from "./components/VCardCustom.vue";
 
 export default {
-  components: { AllLists, TopBar, Task },
+  components: { AllLists, TopBar, VCardCustom },
   name: "App",
   data() {
     return {

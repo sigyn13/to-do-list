@@ -1,28 +1,25 @@
 <template>
   <v-checkbox
-    v-model="status"
     color="indigo darken-3"
     hide-details
     class="ma-3"
+    @click="changeCheckbox()"
   ></v-checkbox>
 </template>
 
 <script>
 export default {
   components: {},
-  name: "Task",
+  name: "VCheckboxCustom",
   data() {
     return {};
   },
-  props: {
-    status: {
-      type: Boolean,
-      default() {
-        return false;
-      }
+  computed: {},
+  methods: {
+    changeCheckbox() {
+      this.$emit("setStatus");
     }
-  },
-  computed: {}
+  }
 };
 </script>
 

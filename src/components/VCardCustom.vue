@@ -18,13 +18,7 @@
           {{ "Режиссер: " + task.author }}
         </p>
       </v-card-text>
-
-      <v-checkbox
-        v-model="status"
-        color="indigo darken-3"
-        hide-details
-        class="ma-3"
-      ></v-checkbox>
+      <v-checkbox-custom @setStatus="setStatus" />
     </div>
     <div class="d-flex pa-3">
       <p class="">Жанр:</p>
@@ -38,20 +32,26 @@
     </div>
 
     <v-card-actions class="d-flex justify-end">
-      <v-btn text color="deep-purple accent-4">
-        Learn More
-      </v-btn>
+      <v-button
+        @setVisible="setVisible"
+        :btnInner="btnInner"
+        :moreVisible="moreVisible"
+      />
     </v-card-actions>
   </v-card>
 </template>
 
 <script>
+import VButton from "./VButton.vue";
+import VCheckboxCustom from "./VCheckboxCustom.vue";
 export default {
-  components: {},
-  name: "Task",
+  components: { VButton, VCheckboxCustom },
+  name: "VCardCustom",
   data() {
     return {
-      status: false
+      status: false,
+      moreVisible: false,
+      btnInner: { visible: "Hide", unVisible: "Learn more" }
     };
   },
   props: {
@@ -62,15 +62,13 @@ export default {
       }
     }
   },
-  computed: {
-    tasks() {
-      return this.$store.getters.TASKS;
+  computed: {},
+  methods: {
+    setStatus() {
+      this.status = !this.status;
     },
-    movies() {
-      return this.tasks.filter(i => i.type === "movie");
-    },
-    books() {
-      return this.tasks.filter(i => i.type === "book");
+    setVisible() {
+      this.moreVisible = !this.moreVisible;
     }
   }
 };
