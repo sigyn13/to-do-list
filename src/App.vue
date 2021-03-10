@@ -69,11 +69,14 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
   margin-top: 20px;
 }
 
 .v-application {
   font-family: "Axiforma-Light" !important;
+
+  a {
+    color: #4527a0 !important;
+  }
 }
 </style>

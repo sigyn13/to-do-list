@@ -1,9 +1,12 @@
 @import './_normalize.scss';
 
-
 body {
     background-color:#F6F3F3;
     font-family: 'Axiforma-Light';
+    a {
+        text-decoration: none;
+    }
+
 }
 
 

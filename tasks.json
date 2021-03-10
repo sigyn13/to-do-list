@@ -293,7 +293,12 @@
     {
       "id": 13,
       "name": "«Побег из Шоушенка»",
-      "author": "Фрэнк Дарабонт",
+      "author": [
+        {
+          "name":"Фрэнк Дарабонт",
+          "link": "https://www.kinopoisk.ru/name/24262/"
+        }
+      ],
       "genre": [
         {
           "key": 0,
@@ -311,7 +316,7 @@
           "link": "https://www.kinopoisk.ru/name/6750/"
         }
       ],
-      "poster": "shawshank.jpg",
+      "poster": "https://avatars.mds.yandex.net/get-kinopoisk-image/1773646/e26044e5-2d5a-4b38-a133-a776ad93366f/960x960",
       "description": "Выдающаяся драма о силе таланта, важности дружбы, стремлении к свободе и Рите Хэйворт",
       "status": false,
       "type": "movie"
@@ -319,7 +324,12 @@
     {
       "id": 14,
       "name": "«Зеленая миля»",
-      "author": "Фрэнк Дарабонт",
+      "author": [
+        {
+          "name":"Фрэнк Дарабонт",
+          "link": "https://www.kinopoisk.ru/name/24262/"
+        }
+      ],
       "genre": [
         {
           "key": 0,
@@ -353,7 +363,7 @@
           "link": "https://www.kinopoisk.ru/name/677/"
         }
       ],
-      "poster": "the-green-mile.jpg",
+      "poster": "https://avatars.mds.yandex.net/get-kinopoisk-image/1946459/acb932eb-c7d0-42de-92df-f5f306c4c48e/800x800",
       "description": "В тюрьме для смертников появляется заключенный с божественным даром. Мистическая драма по роману Стивена Кинга",
       "status": false,
       "type": "movie"

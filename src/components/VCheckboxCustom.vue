@@ -2,7 +2,7 @@
   <v-checkbox
     color="indigo darken-3"
     hide-details
-    class="ma-3"
+    class="ma-0 pa-0"
     @click="changeCheckbox()"
   ></v-checkbox>
 </template>

@@ -15,8 +15,7 @@ export default {
     btnText() {
       if (this.moreVisible === true) {
         return this.btnInner.visible;
-      }
-      return this.btnInner.unVisible;
+      } else return this.btnInner.unVisible;
     }
   },
   props: {
