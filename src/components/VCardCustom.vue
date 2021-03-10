@@ -20,8 +20,8 @@
       </v-card-text>
       <v-checkbox-custom @setStatus="setStatus" />
     </div>
-    <div class="d-flex pa-3">
-      <p class="">Жанр:</p>
+    <div class="d-flex pa-4 pb-0">
+      <p class="ma-0">Жанр:</p>
       <span
         v-for="item in task.genre"
         :key="item.id"
@@ -30,6 +30,11 @@
         {{ item.name }}
       </span>
     </div>
+    <v-expand-transition v-if="moreVisible">
+      <v-card class="text--primary text-left description">
+        <p class="pa-4">{{ task.description }}</p></v-card
+      >
+    </v-expand-transition>
 
     <v-card-actions class="d-flex justify-end">
       <v-button
@@ -51,7 +56,7 @@ export default {
     return {
       status: false,
       moreVisible: false,
-      btnInner: { visible: "Hide", unVisible: "Learn more" }
+      btnInner: { visible: "Скрыть", unVisible: "Подробнее" }
     };
   },
   props: {
@@ -74,4 +79,9 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.description {
+  border: none !important;
+  box-shadow: none !important;
+}
+</style>
